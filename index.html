@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://kit.fontawesome.com/148a6e46c4.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container-sm" style="width:800px; height:500px">
+        <form class="search-field">
+            <input type="text" id="search-input" placeholder="Search a city">
+            <button id="search-button" class="btn btn-light btn-sm">
+                Submit
+            </button>
+        </form>
+        <div>
+            <button id="clbutton" class="btn btn-light btn-sm" style="background-color: rgb(100, 148, 237, 0.4); position:relative; bottom: 40px; left: 260px;">
+               Current Location
+            </button>
+        </div>
+        <div class="metrics">
+            °C | °F
+        </div>
+        <h1 style="font-weight: 400;">
+            Weather Forecast
+        </h1>
+        <h2 style="font-weight: 300; font-size: 16px; text-align:left;">
+            Current Date 
+        </h2>    
+            <div class="row">
+                <div class="col">
+                    <div class="card text-center">
+                    <div class="card border bg-light">
+                        <div class="card-body">
+                            <div class="card-img-top">
+                                <img src="images/png/004-sun.png" alt="weather-icon" height="70px" width="70px"/>
+                            </div>
+                            <h4>
+                                Day 1
+                            </h4>
+                            <div class="card-text">
+                                <strong> 19°</strong> | 11°
+                                <br/>
+                                <i class="fas fa-wind"></i> 12mph
+                                <br/>
+                                <i class="fas fa-tint"></i> 9%
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                    <div class="card border bg-light">
+                        <div class="card-img-top">
+                            <img src="images/png/003-cloud-computing-1.png" alt="weather-icon" height="70px" width="70px"/>
+                        </div>
+                        <div class="card-body">
+                            <h4>
+                                Day 2
+                            </h4>
+                            <div class="card-text">
+                                <strong> 8° </strong> | 3°
+                                <br/>
+                                <i class="fas fa-wind"></i> 12mph
+                                <br/>
+                                <i class="fas fa-tint"></i> 9%
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                    <div class="card border bg-light">
+                        <div class="card-body">
+                        <div class="card-img-top">
+                                <img src="images/png/001-contrast.png" alt="weather-icon" hheight="70px" width="70px"/>
+                        </div>
+                            <h4>
+                                Day 3
+                            </h4>
+                            <div class="card-text text-center">
+                                <strong>21°</strong>| 3°
+                                <br/>
+                                <i class="fas fa-wind"></i> 12mph
+                                <br/>
+                                <i class="fas fa-tint"></i> 9%
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                    <div class="card border bg-light">
+                        <div class="card-body">
+                        <div class="card-img-top">
+                                <img src="images/png/001-contrast.png" alt="weather-icon" height="70px" width="70px"/>
+                        </div>
+                            <h4>
+                                Day 4
+                            </h4>
+                            <div class="card-text">
+                                <strong> 23° </strong> | 9°
+                                <br/>
+                                <i class="fas fa-wind"></i> 12mph
+                                <br/>
+                                <i class="fas fa-tint"></i> 9%
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                    <div class="card border bg-light">
+                        <div class="card-img-top">
+                            <img src="images/png/002-cloud-computing.png" alt="weather-icon" height="70px" width="70px"/>
+                        </div>
+                        <div class="card-body">
+                            <h4>
+                                Day 5
+                            </h4>
+                            <div class="card-text">
+                                <strong> 8° </strong> | 4°
+                                <br/>
+                                <i class="fas fa-wind"></i> 12mph
+                                <br/>
+                                <i class="fas fa-tint"></i> 9%
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+<script src="js.js"> </script>
+</body>
+</html>
