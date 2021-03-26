@@ -27,6 +27,8 @@ button.addEventListener("click", navigation);
 
 function currentDate() {
   let now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
   let days = [
     "Sunday",
     "Monday",
@@ -56,7 +58,7 @@ function currentDate() {
   let year = now.getFullYear();
 
   let h2 = document.querySelector("h2");
-  h2.innerHTML = `${day} ${date}, ${month} ${year}`;
+  h2.innerHTML = `${day} ${date}, ${month} ${year}, ${hours}:${minutes}`;
 }
 currentDate();
 
