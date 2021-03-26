@@ -1,8 +1,12 @@
+
 .container-sm {
-    padding: 0px 50px;
+    display: block;
+    margin: 0 auto;
+    padding: 50px 50px;
     margin: 100px;
     border: 1px solid lightgrey;
     border-radius: 5px 5px;
+    font-size: 12px;
 }
 form {
     padding: 20px 0px 10px 0px;
@@ -18,19 +22,16 @@ h2 {
      position: relative;
      bottom: 15px;
  }
-.card-img-top {
-    width: 80px;
-    height: 80px;
-}
+
 .metrics {
     position: relative;
-    bottom: 40px;
+    bottom: 30px;
 }
-
-.signature {
+.coding-signoff {
     font-size: 12px;
     display: block;
+    padding: 0;
+    text-align: center;
     position: relative;
     bottom: 100px;
-    left: 30px;
 }
