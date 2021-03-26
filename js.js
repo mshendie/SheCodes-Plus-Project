@@ -1,11 +1,12 @@
 function currentTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let heading = document.querySelector("h1");
-  heading.innerHTML = `Currently ${temperature}° in ${city}`;
+  let temperatureDisplay = document.querySelector("h1");
+  temperatureDisplay.innerHTML = `Currently ${temperature}° in ${city}`;
 }
 
 function retrievePosition(position) {
+  console.log(position)
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let apiKey = "52349dd2c0a996c2553f897a4e112d4a";
@@ -13,13 +14,17 @@ function retrievePosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(currentTemperature);
 }
-navigator.geolocation.getCurrentPosition(retrievePosition);
+function navigation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
 
 let button = document.getElementById("clbutton");
-button.addEventListener("submit", currentTemperature);
+button.addEventListener("click", navigation);
 
 
 //
+
 function currentDate() {
   let now = new Date();
   let days = [
@@ -54,4 +59,5 @@ function currentDate() {
   h2.innerHTML = `${day} ${date}, ${month} ${year}`;
 }
 currentDate();
+
 //
