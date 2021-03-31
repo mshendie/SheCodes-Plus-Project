@@ -18,36 +18,40 @@
             </button>
         </form>
         <div>
-            <button id="clbutton" class="btn btn-light btn-sm" style="background-color: rgb(100, 148, 237, 0.4); position:relative; bottom: 41px; left: 205px;">
+            <button id="clbutton" class="btn btn-light btn-sm" style="background-color: rgb(100, 148, 237, 0.4); position:relative; bottom: 41px; left: 210px;">
                Current Location
             </button>
-        </div>
-        <div class="metrics">
-            °C | °F
         </div>
         <h1 style="font-weight: 400;">
             Weather Forecast
         </h1>
         <h2 style="font-weight: 300; font-size: 16px; text-align:left;">
             Current Date 
-        </h2>    
+        </h2>
+        <h3 style="font-weight: 300; font-size: 16px; text-align:left; color: grey"> </h3>    
             <div class="row">
                 <div class="col">
                     <div class="card text-center">
                     <div class="card border bg-light">
                         <div class="card-body">
                             <div class="card-img-top">
-                                <img src="images/004-sun.png" alt="weather-icon" height="50px" width="50px"/>
+                                <img id="image" src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
                             </div>
-                            <h5 style="font-size: 16px">
-                                Day 1
+                            <h5 style="font-size: 18px">
+                                Today
                             </h5>
                             <div class="card-text">
-                                <strong> 19°</strong> | 11°
-                                <br/>
-                                <i class="fas fa-wind"></i> 12mph
-                                <br/>
-                                <i class="fas fa-tint"></i> 9%
+                                <ul>
+                                    <li>
+                                        <strong id="max-temp-today"> 19° </strong> | <span id="min-temp-today"> 11° </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-wind"></i> <span id="wind-speed-today"> 12mph </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-tint"></i> <span id="humidity-today"> 9% </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -56,19 +60,25 @@
                 <div class="col">
                     <div class="card text-center">
                     <div class="card border bg-light">
-                        <div class="card-img-top">
-                            <img src="images/003-cloud-computing-1.png" alt="weather-icon" height="50px" width="50px"/>
-                        </div>
                         <div class="card-body">
-                            <h5 style="font-size: 16px">
+                        <div class="card-img-top">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
+                        </div>
+                            <h5 style="font-size: 18px">
                                 Day 2
                             </h5>
                             <div class="card-text">
-                                <strong> 8° </strong> | 3°
-                                <br/>
-                                <i class="fas fa-wind"></i> 12mph
-                                <br/>
-                                <i class="fas fa-tint"></i> 9%
+                                <ul>
+                                    <li>
+                                        <strong id="max-temp-day-two"> 19° </strong> | <span id="min-temp-day-two"> 11° </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-wind"></i> <span id="wind-speed-day-two"> 12mph </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-tint"></i> <span id="humidity-day-two"> 9% </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -79,17 +89,23 @@
                     <div class="card border bg-light">
                         <div class="card-body">
                         <div class="card-img-top">
-                                <img src="images/001-contrast.png" alt="weather-icon" height="50px" width="50px"/>
+                                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
                         </div>
-                            <h5 style="font-size: 16px">
+                            <h5 style="font-size: 18px">
                                 Day 3
                             </h5>
-                            <div class="card-text text-center">
-                                <strong>21°</strong>| 3°
-                                <br/>
-                                <i class="fas fa-wind"></i> 12mph
-                                <br/>
-                                <i class="fas fa-tint"></i> 9%
+                            <div class="card-text">
+                                <ul>
+                                    <li>
+                                        <strong id="max-temp-day-three"> 19° </strong> | <span id="min-temp-day-three"> 11° </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-wind"></i> <span id="wind-speed-day-three"> 12mph </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-tint"></i> <span id="humidity-day-three"> 9% </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -100,17 +116,23 @@
                     <div class="card border bg-light">
                         <div class="card-body">
                         <div class="card-img-top">
-                                <img src="images/001-contrast.png" alt="weather-icon" height="50px" width="50px"/>
+                                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
                         </div>
-                            <h5 style="font-size: 16px">
+                            <h5 style="font-size: 18px">
                                 Day 4
                             </h5>
                             <div class="card-text">
-                                <strong> 23° </strong> | 9°
-                                <br/>
-                                <i class="fas fa-wind"></i> 12mph
-                                <br/>
-                                <i class="fas fa-tint"></i> 9%
+                                <ul>
+                                    <li>
+                                        <strong id="max-temp-day-four"> 19° </strong> | <span id="min-temp-day-four"> 11° </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-wind"></i> <span id="wind-speed-day-four"> 12mph </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-tint"></i> <span id="humidity-day-four"> 9% </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -119,19 +141,25 @@
                 <div class="col">
                     <div class="card text-center">
                     <div class="card border bg-light">
-                        <div class="card-img-top">
-                            <img src="images/002-cloud-computing.png" alt="weather-icon" height="50px" width="50px"/>
-                        </div>
                         <div class="card-body">
-                            <h5 style="font-size: 16px">
+                        <div class="card-img-top">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
+                        </div>
+                            <h5 style="font-size: 18px">
                                 Day 5
                             </h5>
                             <div class="card-text">
-                                <strong> 8° </strong> | 4°
-                                <br/>
-                                <i class="fas fa-wind"></i> 12mph
-                                <br/>
-                                <i class="fas fa-tint"></i> 9%
+                                <ul>
+                                    <li>
+                                        <strong id="max-temp-day-five"> 19° </strong> | <span id="min-temp-day-five"> 11° </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-wind"></i> <span id="wind-speed-day-five"> 12mph </span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-tint"></i> <span id="humidity-day-five"> 9% </span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,7 @@
 
 .container-sm {
     display: block;
-    margin: 0 auto;
-    padding: 50px 50px;
+    padding: 50px 50px 0px 50px;
     margin: 100px;
     border: 1px solid lightgrey;
     border-radius: 5px 5px;
@@ -23,10 +22,12 @@ h2 {
      bottom: 15px;
  }
 
-.metrics {
-    position: relative;
-    bottom: 30px;
-}
+ ul {
+     display: inline;
+     list-style: none;
+     margin: 0 auto;
+     padding: 0 auto;
+ }
 .coding-signoff {
     font-size: 12px;
     display: block;
