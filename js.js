@@ -72,23 +72,21 @@ function retrievePosition(position) {
 }
 function displayWeatherCondition(response) {
   console.log(response);
-  let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let image = document.getElementById("image");
+  let image = document.getElementById("image-current");
   let weatherForecast = document.querySelector("h1");
-  document.querySelector("h3").innerHTML= response.data.weather[0].description;
-  document.getElementById("max-temp-today").innerHTML = `${Math.round(response.data.main.temp_max)}°`;
-  document.getElementById("wind-speed-today").innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
-  document.getElementById("min-temp-today").innerHTML = `${Math.round(response.data.main.temp_min)}°`;
-  document.getElementById("humidity-today").innerHTML = `${response.data.main.humidity}%`;
+  document.getElementById("current-description").innerHTML = response.data.weather[0].description;
+  document.getElementById("temp-current").innerHTML = `${Math.round(response.data.main.temp)}°`;
+  document.getElementById("wind-speed-current").innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+  document.getElementById("humidity-current").innerHTML = `${response.data.main.humidity}%`;
   image.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
-  weatherForecast.innerHTML = `Currently ${temperature}° in ${city}`;
+  weatherForecast.innerHTML = `Currently in ${city}`;
 }
 let button = document.getElementById("clbutton");
 button.addEventListener("click", navigation);
 
-// 3 day forecast 
+// 5 day forecast 
 
 
 
