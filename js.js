@@ -92,15 +92,9 @@ button.addEventListener("click", navigation);
 // responsive background
 
 //
-function changeBackground() {
+function changeBackground(response) {
   let apiDescription = response.data.weather[0].description;
   let background = document.getElementById("container");
-  let now = new Date();
-  let hour = now.getHours();
-    if (hour <= 6 || hour >= 20) {
-    background.style.backgroundImage =
-      "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
-  } 
     if (apiDescription==="scattered clouds") {
       background.style.backgroundImage = "linear-gradient(109.6deg, rgb(223, 234, 247) 11.2%, rgb(244, 248, 252) 91.1%)";
     }
@@ -122,4 +116,14 @@ function changeBackground() {
     if (apiDescription==="light snow") {
   background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
     }
+}
+
+function nightBackground() {
+  let now = new Date();
+  let hour = now.getHours();
+  let background = document.getElementById("container");
+  if (hour <= 6 || hour >= 20) {
+    background.style.backgroundImage =
+      "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
+  } 
 }
