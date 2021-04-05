@@ -86,7 +86,47 @@ let button = document.getElementById("clbutton");
 button.addEventListener("click", navigation);
 
 // 5 day forecast 
+function displayForecast() {
+  let forecastElement = document.querySelector("weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML +
+    `<div class="col">
+      <div class="card text-center">
+        <div class="card border bg-light">
+            <div class="card-body">
+                <div class="card-img-top">
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
+                </div>
+                <h5 style="font-size: 18px">
+                ${day}
+                </h5>
+                <div class="card-text">
+                    <ul>
+                        <li>
+                            <strong id="max-temp-day-1"> 19° </strong> | <span id="min-temp-day-1"> 11° </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-wind"></i> <span id="wind-speed-day-1"> 12mph </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-tint"></i> <span id="humidity-day-1"> 9% </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>`
+  });
 
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastElement;
+console.log(forecastHTML);
+}
+
+displayForecast();
 //
 
 // responsive background
@@ -118,12 +158,3 @@ function changeBackground(response) {
     }
 }
 
-function nightBackground() {
-  let now = new Date();
-  let hour = now.getHours();
-  let background = document.getElementById("container");
-  if (hour <= 6 || hour >= 20) {
-    background.style.backgroundImage =
-      "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
-  } 
-}
