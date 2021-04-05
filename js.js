@@ -192,6 +192,5 @@ function changeBackground(response) {
       background.style.backgroundImage =
       "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
       currentSection.style.color = "#f1f1f1";
-      document.getElementById("current-list").style.color="#f1f1f1";
     }
   }
