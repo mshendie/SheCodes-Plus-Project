@@ -39,7 +39,9 @@ function currentDate() {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${day} ${date}, ${month} ${year}, ${hours}:${minutes}`; 
 }
+
 currentDate();
+
 // search a city function //
 
 function handleSubmit(event) {
@@ -69,6 +71,7 @@ function retrievePosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
+
 function displayWeatherCondition(response) {
   console.log(response);
   let city = response.data.name;
@@ -80,13 +83,17 @@ function displayWeatherCondition(response) {
   document.getElementById("humidity-current").innerHTML = `${response.data.main.humidity}%`;
   image.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   weatherForecast.innerHTML = `Currently in ${city}`;
+  retrieveForecast(response.data.coord);
   changeBackground(response);
 }
+
 let button = document.getElementById("clbutton");
 button.addEventListener("click", navigation);
 
 // 5 day forecast 
+
 function displayForecast() {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("weather-forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -124,14 +131,19 @@ function displayForecast() {
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastElement;
 console.log(forecastHTML);
+};
+
+function retrieveForecast(coordinates) {
+console.log(coordinates);
+let apiKey= "52349dd2c0a996c2553f897a4e112d4a";
+let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeatherCondition)
 }
 
-displayForecast();
-//
+displayForecast()
 
 // responsive background
 
-//
 function changeBackground(response) {
   let apiDescription = response.data.weather[0].description;
   let background = document.getElementById("container");
@@ -139,13 +151,13 @@ function changeBackground(response) {
       background.style.backgroundImage = "linear-gradient(109.6deg, rgb(223, 234, 247) 11.2%, rgb(244, 248, 252) 91.1%)";
     }
     if (apiDescription==="clear sky") {
-  background.style.backgroundImage = "linear-gradient(120deg, #f6d365 0%, #fda085 100%)";
+  background.style.backgroundImage = "linear-gradient(60deg, #f6d365 0%, #fda085 100%)";
     }
     if (apiDescription==="few clouds") {
-  background.style.backgroundImage = "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
+  background.style.backgroundImage = "linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%)";
     }
     if (apiDescription==="broken clouds"|| apiDescription==="overcast clouds") {
-  background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(255, 246, 236) 39.5%, rgba(100, 46, 122, 0.23) 100.2%)";
+  background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(221, 215, 215) 30%, rgba(100, 46, 122, 0.23) 100%)";
     }
     if (apiDescription==="light rain") {
   background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%)";
