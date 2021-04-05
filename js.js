@@ -171,22 +171,22 @@ function changeBackground(response) {
         background.style.backgroundImage = "linear-gradient(109.6deg, rgb(223, 234, 247) 11.2%, rgb(244, 248, 252) 91.1%)";
       }
       if (apiDescription==="clear sky") {
-    background.style.backgroundImage = "radial-gradient(circle at 0.7% 1%, rgb(215, 248, 247) 0%, rgb(102, 188, 239) 100.2%);";
+      background.style.backgroundImage = "radial-gradient(circle at 1% 1%, rgb(215, 248, 247) 0%, rgb(102, 188, 239) 100.2%)";
       }
       if (apiDescription==="few clouds") {
-    background.style.backgroundImage = "linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%)";
+      background.style.backgroundImage = "linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%)";
       }
       if (apiDescription==="broken clouds"|| apiDescription==="overcast clouds") {
-    background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(221, 215, 215) 30%, rgba(100, 46, 122, 0.23) 100%)";
+     background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(221, 215, 215) 30%, rgba(100, 46, 122, 0.23) 100%)";
       }
       if (apiDescription==="light rain") {
-    background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%)";
+      background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%)";
       }
       if (apiDescription==="heavy rain") {
-    background.style.backgroundImage = "linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%)";
+      background.style.backgroundImage = "linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%)";
       }
       if (apiDescription==="light snow") {
-    background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
+      background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
       }
     } else {
       background.style.backgroundImage =
