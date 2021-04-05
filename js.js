@@ -158,12 +158,12 @@ axios.get(apiUrl).then(displayForecast);
 
 // responsive background
 
-// if after sunset, then nightBackground, if not then changeBackground
+// if after sunset, then night mode , if not then light mode //
 
 function changeBackground(response) {
   let apiDescription = response.data.weather[0].description;
   let background = document.getElementById("container");
-  let currentSection = document.getElementById("current-section");
+  let currentSection = document.querySelector("#current-section");
   let time = response.data.dt;
   let sunset = response.data.sys.sunset;
     if (time < sunset) {
@@ -191,6 +191,6 @@ function changeBackground(response) {
     } else {
       background.style.backgroundImage =
       "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
-      currentSection.style.color = "ffffff";
+      currentSection.style.color = "#ffffff";
     }
   }
