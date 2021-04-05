@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="container-sm" style="width:700px;" id="container">
+    <div class="container-sm" style="width:800px;" id="container">
         <form class="search-form">
             <input type="text" id="search-input" placeholder="Search a city">
             <button id="search-button" class="btn btn-light btn-sm">
@@ -18,27 +18,29 @@
             </button>
         </form>
         <div>
-            <button id="clbutton" class="btn btn-light btn-sm" style="background-color: rgba(120, 135, 161, 0.4); position:relative; bottom: 41px; left: 260px;">
+            <button id="clbutton" class="btn btn-light btn-sm" style="background-color: rgba(120, 135, 161, 0.4); position:relative; bottom: 40px; left: 270px;">
                 Current Location
             </button>
         </div>
-        <h1 class="currently" style="font-weight: 400;">
-            Weather Forecast
-        </h1>
-        <h2 class="currently" style="font-weight: 300; font-size: 16px; text-align:left;">
-            Current Date 
-        </h2>
-        <div class="row" style="padding:0 0 20px 0;">
-            <div class="col-2">
-                <img id="image-current" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="100px" width="100px"/>
-            </div>
-            <div class="col-2 align-self-center">
-                <p class="currently" style="margin:0; padding: 0; text-align: left; font-size: 40px; font-weight:200; color: rgb(67, 67, 83);"> <i class="fas fa-thermometer-half"></i> <span id="temp-current">  °C </span> </p>
-            </div>
-            <div class="col align-self-center">
-                <p class="currently" style="font-size: 14px; text-align:left; font-style: italic; font-weight:250; color: rgb(67, 67, 83); margin:0; padding: 0;"> <i class="far fa-eye"></i>  <span id="current-description"> </span> </p>
-                <p class="currently" style="margin:0; padding: 0; color: rgb(67, 67, 83); font-size: 14px; font-weight:250;"> <i class="fas fa-wind"></i> <span id="wind-speed-current"> </span> </p>
-                <p class="currently" style="margin:0; padding: 0; color: rgb(67, 67, 83); font-size: 14px; font-weight:250;"> <i class="fas fa-tint"></i> <span id="humidity-current"> </span> </p>
+        <div id="current-section">
+            <h1 style="font-weight: 400;">
+                Weather Forecast
+            </h1>
+            <h2 style="font-weight: 300; font-size: 16px; text-align:left;">
+                Current Date 
+            </h2>
+            <div class="row" style="padding:0 0 20px 0;">
+                <div class="col-2">
+                    <img id="image-current" src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="100px" width="100px"/>
+                </div>
+                <div class="col-2 align-self-center">
+                    <p class="currently" style="margin:0; padding: 0; text-align: left; font-size: 40px; font-weight:200; color: rgb(67, 67, 83);"> <i class="fas fa-thermometer-half"></i> <span id="temp-current">  °C </span> </p>
+                </div>
+                <div class="col align-self-center">
+                    <p style="font-size: 14px; text-align:left; font-style: italic; font-weight:250; color: rgb(67, 67, 83); margin:0; padding: 0;"> <i class="far fa-eye"></i>  <span id="current-description"> </span> </p>
+                    <p style="margin:0; padding: 0; color: rgb(67, 67, 83); font-size: 14px; font-weight:250;"> <i class="fas fa-wind"></i> <span id="wind-speed-current"> </span> </p>
+                    <p style="margin:0; padding: 0; color: rgb(67, 67, 83); font-size: 14px; font-weight:250;"> <i class="fas fa-tint"></i> <span id="humidity-current"> </span> </p>
+                </div>
             </div>
         </div>
         <div id="weather-forecast"></div>

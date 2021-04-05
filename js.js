@@ -121,13 +121,13 @@ function displayForecast(response) {
           <div class="card text-center">
             <div class="card-body">
                 <div class="card-img-top">
-                    <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="weather-icon" height="50px" width="50px"/>
+                    <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="weather-icon" height="75px" width="75px"/>
                 </div>
-                <h5 style="font-size: 16px">
+                <h5 style="font-size: 16px;">
                 ${formatDay(forecastDay.dt)}
                 </h5>
                 <div class="card-text">
-                    <ul>
+                    <ul class="forecast-cards">
                         <li>
                             <strong id="max-temp-day-1"> ${Math.round(forecastDay.temp.max)}° </strong> | <span id="min-temp-day-1"> ${Math.round(forecastDay.temp.min)}° </span>
                         </li>
@@ -158,31 +158,39 @@ axios.get(apiUrl).then(displayForecast);
 
 // responsive background
 
+// if after sunset, then nightBackground, if not then changeBackground
+
 function changeBackground(response) {
   let apiDescription = response.data.weather[0].description;
   let background = document.getElementById("container");
-    if (apiDescription==="scattered clouds") {
-      background.style.backgroundImage = "linear-gradient(109.6deg, rgb(223, 234, 247) 11.2%, rgb(244, 248, 252) 91.1%)";
+  let currentSection = document.getElementById("current-section");
+  let time = response.data.dt;
+  let sunset = response.data.sys.sunset;
+    if (time < sunset) {
+      if (apiDescription==="scattered clouds") {
+        background.style.backgroundImage = "linear-gradient(109.6deg, rgb(223, 234, 247) 11.2%, rgb(244, 248, 252) 91.1%)";
+      }
+      if (apiDescription==="clear sky") {
+    background.style.backgroundImage = "radial-gradient(circle at 0.7% 1%, rgb(215, 248, 247) 0%, rgb(102, 188, 239) 100.2%);";
+      }
+      if (apiDescription==="few clouds") {
+    background.style.backgroundImage = "linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%)";
+      }
+      if (apiDescription==="broken clouds"|| apiDescription==="overcast clouds") {
+    background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(221, 215, 215) 30%, rgba(100, 46, 122, 0.23) 100%)";
+      }
+      if (apiDescription==="light rain") {
+    background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%)";
+      }
+      if (apiDescription==="heavy rain") {
+    background.style.backgroundImage = "linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%)";
+      }
+      if (apiDescription==="light snow") {
+    background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
+      }
+    } else {
+      background.style.backgroundImage =
+      "linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%)";
+      currentSection.style.color = "ffffff";
     }
-    if (apiDescription==="clear sky") {
-  background.style.backgroundImage = "linear-gradient(60deg, #f6d365 0%, #fda085 100%)";
-    }
-    if (apiDescription==="few clouds") {
-  background.style.backgroundImage = "linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%)";
-    }
-    if (apiDescription==="broken clouds"|| apiDescription==="overcast clouds") {
-  background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(221, 215, 215) 30%, rgba(100, 46, 122, 0.23) 100%)";
-    }
-    if (apiDescription==="light rain") {
-  background.style.backgroundImage = "radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%)";
-    }
-    if (apiDescription==="heavy rain") {
-  background.style.backgroundImage = "linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%)";
-    }
-    if (apiDescription==="light snow") {
-  background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
-    }
-}
-
-
-
+  }
