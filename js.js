@@ -40,6 +40,22 @@ function currentDate() {
   h2.innerHTML = `${day} ${date}, ${month} ${year}, ${hours}:${minutes}`; 
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 currentDate();
 
 // search a city function //
@@ -90,57 +106,55 @@ function displayWeatherCondition(response) {
 let button = document.getElementById("clbutton");
 button.addEventListener("click", navigation);
 
-// 5 day forecast 
+// 5 day forecast //
 
-function displayForecast() {
+function displayForecast(response) {
   console.log(response.data.daily);
-  let forecastElement = document.querySelector("weather-forecast");
+  let forecastData = response.data.daily;
+  let forecastElement = document.getElementById("weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
+  
+  forecastData.forEach(function (forecastDay, index) {
+    if (index < 5) {
     forecastHTML = forecastHTML +
-    `<div class="col">
-      <div class="card text-center">
-        <div class="card border bg-light">
+      `<div class="col">
+          <div class="card text-center">
             <div class="card-body">
                 <div class="card-img-top">
-                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" height="50px" width="50px"/>
+                    <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="weather-icon" height="50px" width="50px"/>
                 </div>
-                <h5 style="font-size: 18px">
-                ${day}
+                <h5 style="font-size: 16px">
+                ${formatDay(forecastDay.dt)}
                 </h5>
                 <div class="card-text">
                     <ul>
                         <li>
-                            <strong id="max-temp-day-1"> 19° </strong> | <span id="min-temp-day-1"> 11° </span>
+                            <strong id="max-temp-day-1"> ${Math.round(forecastDay.temp.max)}° </strong> | <span id="min-temp-day-1"> ${Math.round(forecastDay.temp.min)}° </span>
                         </li>
                         <li>
-                            <i class="fas fa-wind"></i> <span id="wind-speed-day-1"> 12mph </span>
+                            <i class="fas fa-wind"></i> <span id="wind-speed-day-1"> ${Math.round(forecastDay.wind_speed)}km/h </span>
                         </li>
                         <li>
-                            <i class="fas fa-tint"></i> <span id="humidity-day-1"> 9% </span>
+                            <i class="fas fa-tint"></i> <span id="humidity-day-1"> ${Math.round(forecastDay.humidity)}% </span>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
       </div>
-    </div>`
+    </div>`;
+    }
   });
 
 forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastElement;
-console.log(forecastHTML);
-};
+forecastElement.innerHTML = forecastHTML;
+}
 
 function retrieveForecast(coordinates) {
 console.log(coordinates);
 let apiKey= "52349dd2c0a996c2553f897a4e112d4a";
 let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayWeatherCondition)
+axios.get(apiUrl).then(displayForecast);
 }
-
-displayForecast()
 
 // responsive background
 
@@ -169,4 +183,6 @@ function changeBackground(response) {
   background.style.backgroundImage = "radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%)";
     }
 }
+
+
 
